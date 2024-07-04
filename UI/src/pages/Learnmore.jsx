@@ -2,6 +2,7 @@ import React from 'react'
 import Coursescom from '../components/Coursescom'
 import { useEffect, useState, } from "react";
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { getUserType } from './LoginPage';
 
 const Learnmore = () => {
 
@@ -34,6 +35,9 @@ const course=useLoaderData();
 const navigate=useNavigate();
 
 const {id}=useParams();
+
+
+const userType=getUserType();
 
 const deletecourse=async()=>{
   const confirm=window.confirm('Sure want to learn');
@@ -111,9 +115,13 @@ const deletecourse=async()=>{
       </div>
     </div>
     <div className="flex flex-row justify-end gap-4 mr-[205px] ">
-      <Link to={`/editcourse/${id}`} className="flex bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline justify-center items-center">Edit Course</Link>
-      <button onClick={()=>deletecourse(id)} className="flex bg-red-500 hover:bg-red-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline  justify-center items-center">Remove Course</button>
-     
+      {userType=='admin' &&
+                        <>
+                      <Link to={`/editcourse/${id}`} className="flex bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline justify-center items-center">Edit Course</Link>
+                      <button onClick={()=>deletecourse(id)} className="flex bg-red-500 hover:bg-red-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline  justify-center items-center">Remove Course</button>
+                      </>
+                      }
+
       </div>
   </div>
 

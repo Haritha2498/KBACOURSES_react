@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 const courses = require("../models/courses");
 
-router.get("/courses", async (req, res) => {
+
+const verifyToken=require("../middleware/authMiddleware")
+
+router.get("/courses",verifyToken, async (req, res) => {
   const details = await courses.find({});
   res.json(details);
 });

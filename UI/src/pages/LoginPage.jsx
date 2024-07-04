@@ -22,7 +22,13 @@ const loginSubmit = async (e) => {
     },
     body: JSON.stringify(loginDetails),
   });
+
+
+
+
   console.log(res, "login res from /login");
+
+
   if (res.ok) { 
     // console.log('/login resp json', data)
     const data =await res.json();
@@ -102,19 +108,19 @@ const loginSubmit = async (e) => {
 };
 
 
-// const userTypeLoader = () => {
-//   const authToken = document.cookie
-//     .split("; ")
-//     .find((row) => row.startsWith("Authtoken"))
-//     ?.split("=")[1];
-//   console.log("documemnt.cookie vslue", authToken);
+const getUserType = () => {
+  const authToken = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("Authtoken"))
+    ?.split("=")[1];
+  console.log("documemnt.cookie vslue", authToken);
 
-//   const decoded = jwtDecode(authToken);
-//   console.log("decoded", decoded);
-//   const userType = decoded.userType;
-//   console.log("usertype", userType);
-//   return userType;
-// };
+  const decoded = jwtDecode(authToken);
+  console.log("decoded", decoded);
+  const userType = decoded.userType;
+  console.log("usertype", userType);
+  return userType;
+};
 
-// export { LoginPage as default,userTypeLoader  };
-export default LoginPage
+export { LoginPage as default,getUserType  };
+// export default LoginPage

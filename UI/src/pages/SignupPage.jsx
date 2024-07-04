@@ -101,7 +101,7 @@ const SignupPage = () => {
                 htmlFor="type"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Price
+                UserType:
               </label>
               <select
                 id="userType"

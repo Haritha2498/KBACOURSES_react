@@ -1,6 +1,7 @@
 
 import logo from '../assets/images/kbalogo.png'
 import {Link} from 'react-router-dom'
+import Logout from './Logout'
 const Nevbar = () =>
 {
     return(
@@ -18,6 +19,7 @@ const Nevbar = () =>
             <Link to="/courses" className='ml-20'>Courses</Link>
             <Link to="/contact" className='ml-20'>Contact Us</Link>
             <Link to="/addcourse" className='ml-20'>Add Course</Link>
+            <Logout />
         </div>
         </div>
         </>
