@@ -16,6 +16,9 @@ import Addcourse from "./pages/Addcourse.jsx"
 import Contact from "./pages/Contact.jsx"
 import Learnmore, { Coursesloader }  from "./pages/Learnmore.jsx"
 import Editcoursepage from "./pages/Editcoursepage.jsx"
+import LoginPage from "./pages/LoginPage.jsx"
+import SignupPage from "./pages/SignupPage.jsx"
+import AuthLayout from "./Layout/AuthLayout.jsx"
 
 
 
@@ -24,18 +27,27 @@ function App() {
 
   const router=createBrowserRouter(
     createRoutesFromElements(
+
+<>
+      <Route path="/" element={<AuthLayout/>} >
+        <Route index element={<LoginPage/>} />
+        <Route path="/sign-up" element={<SignupPage />}/>
+      </Route>
+
       <Route path="/" element={<MainLayout />}>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/home" element={<Homepage/>} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/addcourse" element={<Addcourse/>}/>
         
         <Route path="/learnmore/:id" element={<Learnmore />} loader={Coursesloader}/>
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/editcourse/:id" element={<Editcoursepage />} loader={Coursesloader}   />
+        <Route path="/editcourse/:id" element={<Editcoursepage />}  />
 
         <Route path="*" element={<Notfoundpage />} />
       </Route>
+
+      </>
     )
   )
   return (

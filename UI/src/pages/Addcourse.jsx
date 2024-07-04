@@ -2,6 +2,7 @@ import React from 'react'
 import Addform from '../components/Addform'
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Addcourse = () => {
 
@@ -23,6 +24,8 @@ const Addcourse = () => {
       price
     }
     const res=addCourseSubmit(newCourse);
+    toast.success("added succesfully");
+
     navigate("/courses")
     // console.log("text",res);
 

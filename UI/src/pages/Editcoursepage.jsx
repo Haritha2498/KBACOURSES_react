@@ -2,13 +2,18 @@ import React from 'react'
 import Editcourse from '../components/Editcourse'
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useState } from "react"
+import { Coursesloader } from './Learnmore';
 
 
 const Editcoursepage = () => {
   
-  const course=useLoaderData();
+  const course=Coursesloader();
+console.log(course,"from edit page ")
 
-    const [title,setTitle]=useState('');
+
+
+
+    const [title,setTitle]=useState(course.title);
     const [courseId,setCourseId]=useState('');
     const [type,setType]=useState('');
     const [description,setDescription]=useState('');

@@ -126,7 +126,7 @@ const deletecourse=async()=>{
 const Coursesloader=async ({params})=>
       {
         
-          const res=await fetch(`api/courses/${params.id}`);
+          const res=await fetch(`/api/courses/${params.id}`);
           const data=await res.json()
           return data;
         }

@@ -2,16 +2,18 @@
 import Card from "./Card"
 import { useEffect, useState, } from "react";
 // import courses from '../courses.json'
+import {GridLoader} from 'react-spinners'
 
 
 
 
-const Cards = ( {isHome=false}) => {
+const Cards = ( {isHome=false}) => {     
  
 
-  const [course,setCourse]=useState([]);
-  const [loading,setloading]=useState(true);
+  const [course,setCourse]=useState([]);     //to store course list
+  const [loading,setloading]=useState(true);        //to handle loading delay
 
+  //syntax of use effect=useEffect((arrowfunction)=>{function description},[])         []=dependency array
 
   useEffect(()=>{
       const fetchCourses=async ()=>
@@ -39,7 +41,7 @@ const Cards = ( {isHome=false}) => {
   return (
     <>
     {isHome ? <h1 className=' font-bold text-lg text-purple-900 text-center'>TOP COURSES</h1> : <h1 className=' font-bold text-lg text-purple-900 text-center'>BROWSE ALL COURSES</h1>}
-    {loading?<h1>loading</h1>:
+    {loading?<h1><GridLoader /></h1>:
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 my-10'>
 
    
